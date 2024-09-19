@@ -96,7 +96,7 @@
 
 {{/* Theme: Scripts */}}
 {{ $js := resources.Get "js/scripts.js" }}
-{{ if eq (getenv "HUGO_ENV") "production" or eq hugo.Environment "github" }}
+{{ if eq (getenv "HUGO_ENV") "production" }}
 {{ $js = $js | resources.Minify | resources.Fingerprint }}
 <script defer src="{{ $js.Permalink }}" integrity="{{ $js.Data.Integrity }}"></script>
 {{ else }}
