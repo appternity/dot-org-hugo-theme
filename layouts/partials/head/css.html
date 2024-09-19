@@ -1,7 +1,7 @@
 {{- $source := "scss/styles.scss" }}
 {{- $target := "css/styles.css" }}
 {{ $options := (dict "targetPath" $target) }}
-{{ if eq hugo.Environment "production" }}
+{{ if eq hugo.Environment "production" or eq hugo.Environment "github" }}
     {{ $options = merge $options (dict "outputStyle" "compressed" "enableSourceMap" false) }}
 {{ else }}
     {{ $options = merge $options (dict "outputStyle" "nested" "enableSourceMap" true) }}
